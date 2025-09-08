@@ -1,0 +1,591 @@
+{
+  "address": "0x213556bbFD988d401ee07eA2760736D1CEFDf306",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "bettor",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint8",
+          "name": "side",
+          "type": "uint8"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "BetPlaced",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "fee",
+          "type": "uint256"
+        }
+      ],
+      "name": "Claimed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "teamA",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "teamB",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "cutoff",
+          "type": "uint64"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint16",
+          "name": "feeBps",
+          "type": "uint16"
+        }
+      ],
+      "name": "MarketCreated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint8",
+          "name": "winner",
+          "type": "uint8"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "score",
+          "type": "string"
+        }
+      ],
+      "name": "MarketResolved",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint8",
+          "name": "side",
+          "type": "uint8"
+        }
+      ],
+      "name": "bet",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        }
+      ],
+      "name": "claim",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "teamA",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "teamB",
+          "type": "string"
+        },
+        {
+          "internalType": "uint64",
+          "name": "cutoff",
+          "type": "uint64"
+        },
+        {
+          "internalType": "uint16",
+          "name": "feeBps",
+          "type": "uint16"
+        }
+      ],
+      "name": "createMarket",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "feesAccrued",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        }
+      ],
+      "name": "getMarket",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        },
+        {
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        },
+        {
+          "internalType": "uint16",
+          "name": "",
+          "type": "uint16"
+        },
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint8",
+          "name": "",
+          "type": "uint8"
+        },
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "marketCount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint8",
+          "name": "winner",
+          "type": "uint8"
+        },
+        {
+          "internalType": "string",
+          "name": "score",
+          "type": "string"
+        }
+      ],
+      "name": "resolve",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address payable",
+          "name": "to",
+          "type": "address"
+        }
+      ],
+      "name": "withdrawFees",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xb88ef43e5b3ffac0906eb3cef3237f45deb1f6f46471740fd936ab4031d5ee39",
+  "receipt": {
+    "to": null,
+    "from": "0x7A6F14e3cfC98E15A9a910b7A9DFb9dabb9384BE",
+    "contractAddress": "0x213556bbFD988d401ee07eA2760736D1CEFDf306",
+    "transactionIndex": 7,
+    "gasUsed": "1104078",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0xd58727a42fae297b638b62fa767f0b55ecc2f7b1a31391146ec8875bceda5c6f",
+    "transactionHash": "0xb88ef43e5b3ffac0906eb3cef3237f45deb1f6f46471740fd936ab4031d5ee39",
+    "logs": [],
+    "blockNumber": 35894413,
+    "cumulativeGasUsed": "3726076",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "cc003878cb1c8ac3b1ec180893388895",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"bettor\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"side\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"BetPlaced\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"fee\",\"type\":\"uint256\"}],\"name\":\"Claimed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"teamA\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"teamB\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint64\",\"name\":\"cutoff\",\"type\":\"uint64\"},{\"indexed\":false,\"internalType\":\"uint16\",\"name\":\"feeBps\",\"type\":\"uint16\"}],\"name\":\"MarketCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"winner\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"score\",\"type\":\"string\"}],\"name\":\"MarketResolved\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"uint8\",\"name\":\"side\",\"type\":\"uint8\"}],\"name\":\"bet\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"}],\"name\":\"claim\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"teamA\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"teamB\",\"type\":\"string\"},{\"internalType\":\"uint64\",\"name\":\"cutoff\",\"type\":\"uint64\"},{\"internalType\":\"uint16\",\"name\":\"feeBps\",\"type\":\"uint16\"}],\"name\":\"createMarket\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"feesAccrued\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"}],\"name\":\"getMarket\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"},{\"internalType\":\"uint64\",\"name\":\"\",\"type\":\"uint64\"},{\"internalType\":\"uint16\",\"name\":\"\",\"type\":\"uint16\"},{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"},{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"marketCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"uint8\",\"name\":\"winner\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"score\",\"type\":\"string\"}],\"name\":\"resolve\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address payable\",\"name\":\"to\",\"type\":\"address\"}],\"name\":\"withdrawFees\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"bet(uint256,uint8)\":{\"params\":{\"side\":\"1 = A, 2 = B, 3 = Draw\"}}},\"title\":\"Simple Football Prediction Market (A vs B vs Draw) \\u2014 Monad Testnet\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"notice\":\"Pari-mutuel: all stakes go into three pools; winners claim pro-rata\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/PredictionMarketSimple.sol\":\"PredictionMarketSimple\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/PredictionMarketSimple.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity ^0.8.20;\\r\\n\\r\\n/// @title Simple Football Prediction Market (A vs B vs Draw) \\u2014 Monad Testnet\\r\\n/// @notice Pari-mutuel: all stakes go into three pools; winners claim pro-rata\\r\\ncontract PredictionMarketSimple {\\r\\n    struct Market {\\r\\n        string teamA;\\r\\n        string teamB;\\r\\n        uint64 cutoff;        // timestamp after which no new bets\\r\\n        uint16 feeBps;        // protocol fee in basis points (e.g., 100 = 1%)\\r\\n        bool resolved;\\r\\n        uint8 winner;         // 1 = A, 2 = B, 3 = Draw\\r\\n        string score;         // e.g. \\\"2-1\\\"\\r\\n        uint256 poolA;\\r\\n        uint256 poolB;\\r\\n        uint256 poolDraw;\\r\\n        mapping(address => uint256) betA;\\r\\n        mapping(address => uint256) betB;\\r\\n        mapping(address => uint256) betD;\\r\\n        mapping(address => bool) claimed;\\r\\n    }\\r\\n\\r\\n    event MarketCreated(uint256 indexed id, string teamA, string teamB, uint64 cutoff, uint16 feeBps);\\r\\n    event BetPlaced(uint256 indexed id, address indexed bettor, uint8 side, uint256 amount);\\r\\n    event MarketResolved(uint256 indexed id, uint8 winner, string score);\\r\\n    event Claimed(uint256 indexed id, address indexed user, uint256 amount, uint256 fee);\\r\\n\\r\\n    address public owner;\\r\\n    uint256 public marketCount;\\r\\n    mapping(uint256 => Market) private markets;\\r\\n    uint256 public feesAccrued;\\r\\n\\r\\n    modifier onlyOwner() { require(msg.sender == owner, \\\"not owner\\\"); _; }\\r\\n    modifier existing(uint256 id){ require(id < marketCount, \\\"bad id\\\"); _; }\\r\\n\\r\\n    constructor(){ owner = msg.sender; }\\r\\n\\r\\n    function createMarket(\\r\\n        string calldata teamA,\\r\\n        string calldata teamB,\\r\\n        uint64 cutoff,\\r\\n        uint16 feeBps\\r\\n    ) external onlyOwner returns (uint256 id) {\\r\\n        require(feeBps <= 1000, \\\"fee too high\\\"); // max 10%\\r\\n        id = marketCount++;\\r\\n        Market storage m = markets[id];\\r\\n        m.teamA = teamA; m.teamB = teamB; m.cutoff = cutoff; m.feeBps = feeBps;\\r\\n        emit MarketCreated(id, teamA, teamB, cutoff, feeBps);\\r\\n    }\\r\\n\\r\\n    /// @param side 1 = A, 2 = B, 3 = Draw\\r\\n    function bet(uint256 id, uint8 side) external payable existing(id) {\\r\\n        Market storage m = markets[id];\\r\\n        require(block.timestamp < m.cutoff, \\\"betting closed\\\");\\r\\n        require(msg.value > 0, \\\"no value\\\");\\r\\n        if (side == 1) { m.poolA += msg.value; m.betA[msg.sender] += msg.value; }\\r\\n        else if (side == 2) { m.poolB += msg.value; m.betB[msg.sender] += msg.value; }\\r\\n        else if (side == 3) { m.poolDraw += msg.value; m.betD[msg.sender] += msg.value; }\\r\\n        else revert(\\\"bad side\\\");\\r\\n        emit BetPlaced(id, msg.sender, side, msg.value);\\r\\n    }\\r\\n\\r\\n    function resolve(uint256 id, uint8 winner, string calldata score) external onlyOwner existing(id) {\\r\\n        Market storage m = markets[id];\\r\\n        require(!m.resolved, \\\"already\\\");\\r\\n        require(winner == 1 || winner == 2 || winner == 3, \\\"bad winner\\\");\\r\\n        m.resolved = true; m.winner = winner; m.score = score;\\r\\n        emit MarketResolved(id, winner, score);\\r\\n    }\\r\\n\\r\\n    function claim(uint256 id) external existing(id) {\\r\\n        Market storage m = markets[id];\\r\\n        require(m.resolved, \\\"not resolved\\\");\\r\\n        require(!m.claimed[msg.sender], \\\"claimed\\\");\\r\\n\\r\\n        uint256 userStake;\\r\\n        uint256 winPool;\\r\\n        if (m.winner == 1) { userStake = m.betA[msg.sender]; winPool = m.poolA; }\\r\\n        else if (m.winner == 2) { userStake = m.betB[msg.sender]; winPool = m.poolB; }\\r\\n        else { userStake = m.betD[msg.sender]; winPool = m.poolDraw; }\\r\\n\\r\\n        require(userStake > 0, \\\"no winnings\\\");\\r\\n\\r\\n        uint256 totalPool = m.poolA + m.poolB + m.poolDraw;\\r\\n        uint256 gross = (totalPool * userStake) / winPool;\\r\\n        uint256 fee = (gross * m.feeBps) / 10_000;\\r\\n        m.claimed[msg.sender] = true;\\r\\n\\r\\n        (bool ok,) = msg.sender.call{value: gross - fee}(\\\"\\\");\\r\\n        require(ok, \\\"transfer failed\\\");\\r\\n\\r\\n        feesAccrued += fee;\\r\\n        emit Claimed(id, msg.sender, gross - fee, fee);\\r\\n    }\\r\\n\\r\\n    function withdrawFees(address payable to) external onlyOwner {\\r\\n        uint256 amt = feesAccrued; feesAccrued = 0;\\r\\n        (bool ok,) = to.call{value: amt}(\\\"\\\"); require(ok, \\\"fee transfer failed\\\");\\r\\n    }\\r\\n\\r\\n    function getMarket(uint256 id) external view existing(id)\\r\\n      returns (string memory, string memory, uint64, uint16, bool, uint8, string memory, uint256, uint256, uint256)\\r\\n    {\\r\\n        Market storage m = markets[id];\\r\\n        return (m.teamA, m.teamB, m.cutoff, m.feeBps, m.resolved, m.winner, m.score, m.poolA, m.poolB, m.poolDraw);\\r\\n    }\\r\\n}\\r\\n\",\"keccak256\":\"0x814e91b4f7e618f5340046551010f0da0015cc53969114bc090390f94e6ed2fe\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50600080546001600160a01b0319163317905561126c806100326000396000f3fe6080604052600436106100865760003560e01c806394db05951161005957806394db059514610138578063c437a0cd1461014e578063ea3085b614610161578063eb44fdd314610181578063ec979082146101b757600080fd5b8063164e68de1461008b578063379607f5146100ad57806386228eaa146100cd5780638da5cb5b14610100575b600080fd5b34801561009757600080fd5b506100ab6100a6366004610cc0565b6101cd565b005b3480156100b957600080fd5b506100ab6100c8366004610cf0565b6102a6565b3480156100d957600080fd5b506100ed6100e8366004610d52565b6105b3565b6040519081526020015b60405180910390f35b34801561010c57600080fd5b50600054610120906001600160a01b031681565b6040516001600160a01b0390911681526020016100f7565b34801561014457600080fd5b506100ed60035481565b6100ab61015c366004610e0a565b6106e3565b34801561016d57600080fd5b506100ab61017c366004610e36565b6108f0565b34801561018d57600080fd5b506101a161019c366004610cf0565b610a65565b6040516100f79a99989796959493929190610ed6565b3480156101c357600080fd5b506100ed60015481565b6000546001600160a01b031633146102005760405162461bcd60e51b81526004016101f790610f62565b60405180910390fd5b600380546000918290556040519091906001600160a01b0384169083908381818185875af1925050503d8060008114610255576040519150601f19603f3d011682016040523d82523d6000602084013e61025a565b606091505b50509050806102a15760405162461bcd60e51b8152602060048201526013602482015272199959481d1c985b9cd9995c8819985a5b1959606a1b60448201526064016101f7565b505050565b8060015481106102c85760405162461bcd60e51b81526004016101f790610f85565b600082815260026020819052604090912090810154600160501b900460ff166103225760405162461bcd60e51b815260206004820152600c60248201526b1b9bdd081c995cdbdb1d995960a21b60448201526064016101f7565b336000908152600a8201602052604090205460ff161561036e5760405162461bcd60e51b815260206004820152600760248201526618db185a5b595960ca1b60448201526064016101f7565b60028101546000908190600160581b900460ff166001036103a757505033600090815260078201602052604090205460048201546103f5565b600283810154600160581b900460ff1690036103db57505033600090815260088201602052604090205460058201546103f5565b505033600090815260098201602052604090205460068201545b600082116104335760405162461bcd60e51b815260206004820152600b60248201526a6e6f2077696e6e696e677360a81b60448201526064016101f7565b600083600601548460050154856004015461044e9190610fbb565b6104589190610fbb565b90506000826104678584610fd4565b6104719190610feb565b60028601549091506000906127109061049590600160401b900461ffff1684610fd4565b61049f9190610feb565b336000818152600a890160205260408120805460ff191660011790559192506104c8838561100d565b604051600081818185875af1925050503d8060008114610504576040519150601f19603f3d011682016040523d82523d6000602084013e610509565b606091505b505090508061054c5760405162461bcd60e51b815260206004820152600f60248201526e1d1c985b9cd9995c8819985a5b1959608a1b60448201526064016101f7565b816003600082825461055e9190610fbb565b90915550339050897fd9cb1e2714d65a111c0f20f060176ad657496bd47a3de04ec7c3d4ca232112ac610591858761100d565b60408051918252602082018790520160405180910390a3505050505050505050565b600080546001600160a01b031633146105de5760405162461bcd60e51b81526004016101f790610f62565b6103e88261ffff1611156106235760405162461bcd60e51b815260206004820152600c60248201526b0cccaca40e8dede40d0d2ced60a31b60448201526064016101f7565b6001805490600061063383611020565b90915550600081815260026020526040902090915080610654888a836110d7565b50600181016106648688836110d7565b5060028101805461ffff8516600160401b0269ffffffffffffffffffff1990911667ffffffffffffffff87161717905560405182907f20e1a9e6fce452b475cc55487f954ebbf4afc72eaa730af709a9aa4aec7d478c906106d0908b908b908b908b908b908b906111c1565b60405180910390a2509695505050505050565b8160015481106107055760405162461bcd60e51b81526004016101f790610f85565b60008381526002602081905260409091209081015467ffffffffffffffff1642106107635760405162461bcd60e51b815260206004820152600e60248201526d18995d1d1a5b99c818db1bdcd95960921b60448201526064016101f7565b6000341161079e5760405162461bcd60e51b81526020600482015260086024820152676e6f2076616c756560c01b60448201526064016101f7565b8260ff166001036107ee57348160040160008282546107bd9190610fbb565b9091555050336000908152600782016020526040812080543492906107e3908490610fbb565b909155506108ab9050565b8260ff16600203610833573481600501600082825461080d9190610fbb565b9091555050336000908152600882016020526040812080543492906107e3908490610fbb565b8260ff1660030361087857348160060160008282546108529190610fbb565b9091555050336000908152600982016020526040812080543492906107e3908490610fbb565b60405162461bcd60e51b8152602060048201526008602482015267626164207369646560c01b60448201526064016101f7565b6040805160ff85168152346020820152339186917f4f1eed5e863a822b0f9eb960dfdab2cc5a99beec4b191f2a7a9c7e28e5a15524910160405180910390a350505050565b6000546001600160a01b0316331461091a5760405162461bcd60e51b81526004016101f790610f62565b83600154811061093c5760405162461bcd60e51b81526004016101f790610f85565b600085815260026020819052604090912090810154600160501b900460ff16156109925760405162461bcd60e51b8152602060048201526007602482015266616c726561647960c81b60448201526064016101f7565b8460ff16600114806109a757508460ff166002145b806109b557508460ff166003145b6109ee5760405162461bcd60e51b815260206004820152600a6024820152693130b2103bb4b73732b960b11b60448201526064016101f7565b60028101805460ff8716600160581b0261ffff60501b1990911617600160501b17905560038101610a208486836110d7565b50857f755280b6fd2e837dcfce7038b2668dbe9e358bd91d53b47e15442a9bdd0943d9868686604051610a5593929190611210565b60405180910390a2505050505050565b606080600080600080606060008060008a6001548110610a975760405162461bcd60e51b81526004016101f790610f85565b60008c81526002602081905260409091209081015460048201546005830154600684015484548594600186019467ffffffffffffffff82169461ffff600160401b8404169460ff600160501b8504811695600160581b909504169360038a01939291908a90610b059061104f565b80601f0160208091040260200160405190810160405280929190818152602001828054610b319061104f565b8015610b7e5780601f10610b5357610100808354040283529160200191610b7e565b820191906000526020600020905b815481529060010190602001808311610b6157829003601f168201915b50505050509950888054610b919061104f565b80601f0160208091040260200160405190810160405280929190818152602001828054610bbd9061104f565b8015610c0a5780601f10610bdf57610100808354040283529160200191610c0a565b820191906000526020600020905b815481529060010190602001808311610bed57829003601f168201915b50505050509850838054610c1d9061104f565b80601f0160208091040260200160405190810160405280929190818152602001828054610c499061104f565b8015610c965780601f10610c6b57610100808354040283529160200191610c96565b820191906000526020600020905b815481529060010190602001808311610c7957829003601f168201915b505050505093509b509b509b509b509b509b509b509b509b509b5050509193959799509193959799565b600060208284031215610cd257600080fd5b81356001600160a01b0381168114610ce957600080fd5b9392505050565b600060208284031215610d0257600080fd5b5035919050565b60008083601f840112610d1b57600080fd5b50813567ffffffffffffffff811115610d3357600080fd5b602083019150836020828501011115610d4b57600080fd5b9250929050565b60008060008060008060808789031215610d6b57600080fd5b863567ffffffffffffffff80821115610d8357600080fd5b610d8f8a838b01610d09565b90985096506020890135915080821115610da857600080fd5b610db48a838b01610d09565b9096509450604089013591508082168214610dce57600080fd5b509150606087013561ffff81168114610de657600080fd5b809150509295509295509295565b803560ff81168114610e0557600080fd5b919050565b60008060408385031215610e1d57600080fd5b82359150610e2d60208401610df4565b90509250929050565b60008060008060608587031215610e4c57600080fd5b84359350610e5c60208601610df4565b9250604085013567ffffffffffffffff811115610e7857600080fd5b610e8487828801610d09565b95989497509550505050565b6000815180845260005b81811015610eb657602081850181015186830182015201610e9a565b506000602082860101526020601f19601f83011685010191505092915050565b6000610140808352610eea8184018e610e90565b90508281036020840152610efe818d610e90565b905067ffffffffffffffff8b16604084015261ffff8a166060840152881515608084015260ff881660a084015282810360c0840152610f3d8188610e90565b60e0840196909652505061010081019290925261012090910152979650505050505050565b6020808252600990820152683737ba1037bbb732b960b91b604082015260600190565b602080825260069082015265189859081a5960d21b604082015260600190565b634e487b7160e01b600052601160045260246000fd5b80820180821115610fce57610fce610fa5565b92915050565b8082028115828204841417610fce57610fce610fa5565b60008261100857634e487b7160e01b600052601260045260246000fd5b500490565b81810381811115610fce57610fce610fa5565b60006001820161103257611032610fa5565b5060010190565b634e487b7160e01b600052604160045260246000fd5b600181811c9082168061106357607f821691505b60208210810361108357634e487b7160e01b600052602260045260246000fd5b50919050565b601f8211156102a157600081815260208120601f850160051c810160208610156110b05750805b601f850160051c820191505b818110156110cf578281556001016110bc565b505050505050565b67ffffffffffffffff8311156110ef576110ef611039565b611103836110fd835461104f565b83611089565b6000601f841160018114611137576000851561111f5750838201355b600019600387901b1c1916600186901b178355611191565b600083815260209020601f19861690835b828110156111685786850135825560209485019460019092019101611148565b50868210156111855760001960f88860031b161c19848701351681555b505060018560011b0183555b5050505050565b81835281816020850137506000828201602090810191909152601f909101601f19169091010190565b6080815260006111d560808301888a611198565b82810360208401526111e8818789611198565b91505067ffffffffffffffff8416604083015261ffff83166060830152979650505050505050565b60ff8416815260406020820152600061122d604083018486611198565b9594505050505056fea26469706673582212204911c6239305837f2ebcd2e914b20f786fd1ab594338649fe458937255c9a91f64736f6c63430008140033",
+  "deployedBytecode": "0x6080604052600436106100865760003560e01c806394db05951161005957806394db059514610138578063c437a0cd1461014e578063ea3085b614610161578063eb44fdd314610181578063ec979082146101b757600080fd5b8063164e68de1461008b578063379607f5146100ad57806386228eaa146100cd5780638da5cb5b14610100575b600080fd5b34801561009757600080fd5b506100ab6100a6366004610cc0565b6101cd565b005b3480156100b957600080fd5b506100ab6100c8366004610cf0565b6102a6565b3480156100d957600080fd5b506100ed6100e8366004610d52565b6105b3565b6040519081526020015b60405180910390f35b34801561010c57600080fd5b50600054610120906001600160a01b031681565b6040516001600160a01b0390911681526020016100f7565b34801561014457600080fd5b506100ed60035481565b6100ab61015c366004610e0a565b6106e3565b34801561016d57600080fd5b506100ab61017c366004610e36565b6108f0565b34801561018d57600080fd5b506101a161019c366004610cf0565b610a65565b6040516100f79a99989796959493929190610ed6565b3480156101c357600080fd5b506100ed60015481565b6000546001600160a01b031633146102005760405162461bcd60e51b81526004016101f790610f62565b60405180910390fd5b600380546000918290556040519091906001600160a01b0384169083908381818185875af1925050503d8060008114610255576040519150601f19603f3d011682016040523d82523d6000602084013e61025a565b606091505b50509050806102a15760405162461bcd60e51b8152602060048201526013602482015272199959481d1c985b9cd9995c8819985a5b1959606a1b60448201526064016101f7565b505050565b8060015481106102c85760405162461bcd60e51b81526004016101f790610f85565b600082815260026020819052604090912090810154600160501b900460ff166103225760405162461bcd60e51b815260206004820152600c60248201526b1b9bdd081c995cdbdb1d995960a21b60448201526064016101f7565b336000908152600a8201602052604090205460ff161561036e5760405162461bcd60e51b815260206004820152600760248201526618db185a5b595960ca1b60448201526064016101f7565b60028101546000908190600160581b900460ff166001036103a757505033600090815260078201602052604090205460048201546103f5565b600283810154600160581b900460ff1690036103db57505033600090815260088201602052604090205460058201546103f5565b505033600090815260098201602052604090205460068201545b600082116104335760405162461bcd60e51b815260206004820152600b60248201526a6e6f2077696e6e696e677360a81b60448201526064016101f7565b600083600601548460050154856004015461044e9190610fbb565b6104589190610fbb565b90506000826104678584610fd4565b6104719190610feb565b60028601549091506000906127109061049590600160401b900461ffff1684610fd4565b61049f9190610feb565b336000818152600a890160205260408120805460ff191660011790559192506104c8838561100d565b604051600081818185875af1925050503d8060008114610504576040519150601f19603f3d011682016040523d82523d6000602084013e610509565b606091505b505090508061054c5760405162461bcd60e51b815260206004820152600f60248201526e1d1c985b9cd9995c8819985a5b1959608a1b60448201526064016101f7565b816003600082825461055e9190610fbb565b90915550339050897fd9cb1e2714d65a111c0f20f060176ad657496bd47a3de04ec7c3d4ca232112ac610591858761100d565b60408051918252602082018790520160405180910390a3505050505050505050565b600080546001600160a01b031633146105de5760405162461bcd60e51b81526004016101f790610f62565b6103e88261ffff1611156106235760405162461bcd60e51b815260206004820152600c60248201526b0cccaca40e8dede40d0d2ced60a31b60448201526064016101f7565b6001805490600061063383611020565b90915550600081815260026020526040902090915080610654888a836110d7565b50600181016106648688836110d7565b5060028101805461ffff8516600160401b0269ffffffffffffffffffff1990911667ffffffffffffffff87161717905560405182907f20e1a9e6fce452b475cc55487f954ebbf4afc72eaa730af709a9aa4aec7d478c906106d0908b908b908b908b908b908b906111c1565b60405180910390a2509695505050505050565b8160015481106107055760405162461bcd60e51b81526004016101f790610f85565b60008381526002602081905260409091209081015467ffffffffffffffff1642106107635760405162461bcd60e51b815260206004820152600e60248201526d18995d1d1a5b99c818db1bdcd95960921b60448201526064016101f7565b6000341161079e5760405162461bcd60e51b81526020600482015260086024820152676e6f2076616c756560c01b60448201526064016101f7565b8260ff166001036107ee57348160040160008282546107bd9190610fbb565b9091555050336000908152600782016020526040812080543492906107e3908490610fbb565b909155506108ab9050565b8260ff16600203610833573481600501600082825461080d9190610fbb565b9091555050336000908152600882016020526040812080543492906107e3908490610fbb565b8260ff1660030361087857348160060160008282546108529190610fbb565b9091555050336000908152600982016020526040812080543492906107e3908490610fbb565b60405162461bcd60e51b8152602060048201526008602482015267626164207369646560c01b60448201526064016101f7565b6040805160ff85168152346020820152339186917f4f1eed5e863a822b0f9eb960dfdab2cc5a99beec4b191f2a7a9c7e28e5a15524910160405180910390a350505050565b6000546001600160a01b0316331461091a5760405162461bcd60e51b81526004016101f790610f62565b83600154811061093c5760405162461bcd60e51b81526004016101f790610f85565b600085815260026020819052604090912090810154600160501b900460ff16156109925760405162461bcd60e51b8152602060048201526007602482015266616c726561647960c81b60448201526064016101f7565b8460ff16600114806109a757508460ff166002145b806109b557508460ff166003145b6109ee5760405162461bcd60e51b815260206004820152600a6024820152693130b2103bb4b73732b960b11b60448201526064016101f7565b60028101805460ff8716600160581b0261ffff60501b1990911617600160501b17905560038101610a208486836110d7565b50857f755280b6fd2e837dcfce7038b2668dbe9e358bd91d53b47e15442a9bdd0943d9868686604051610a5593929190611210565b60405180910390a2505050505050565b606080600080600080606060008060008a6001548110610a975760405162461bcd60e51b81526004016101f790610f85565b60008c81526002602081905260409091209081015460048201546005830154600684015484548594600186019467ffffffffffffffff82169461ffff600160401b8404169460ff600160501b8504811695600160581b909504169360038a01939291908a90610b059061104f565b80601f0160208091040260200160405190810160405280929190818152602001828054610b319061104f565b8015610b7e5780601f10610b5357610100808354040283529160200191610b7e565b820191906000526020600020905b815481529060010190602001808311610b6157829003601f168201915b50505050509950888054610b919061104f565b80601f0160208091040260200160405190810160405280929190818152602001828054610bbd9061104f565b8015610c0a5780601f10610bdf57610100808354040283529160200191610c0a565b820191906000526020600020905b815481529060010190602001808311610bed57829003601f168201915b50505050509850838054610c1d9061104f565b80601f0160208091040260200160405190810160405280929190818152602001828054610c499061104f565b8015610c965780601f10610c6b57610100808354040283529160200191610c96565b820191906000526020600020905b815481529060010190602001808311610c7957829003601f168201915b505050505093509b509b509b509b509b509b509b509b509b509b5050509193959799509193959799565b600060208284031215610cd257600080fd5b81356001600160a01b0381168114610ce957600080fd5b9392505050565b600060208284031215610d0257600080fd5b5035919050565b60008083601f840112610d1b57600080fd5b50813567ffffffffffffffff811115610d3357600080fd5b602083019150836020828501011115610d4b57600080fd5b9250929050565b60008060008060008060808789031215610d6b57600080fd5b863567ffffffffffffffff80821115610d8357600080fd5b610d8f8a838b01610d09565b90985096506020890135915080821115610da857600080fd5b610db48a838b01610d09565b9096509450604089013591508082168214610dce57600080fd5b509150606087013561ffff81168114610de657600080fd5b809150509295509295509295565b803560ff81168114610e0557600080fd5b919050565b60008060408385031215610e1d57600080fd5b82359150610e2d60208401610df4565b90509250929050565b60008060008060608587031215610e4c57600080fd5b84359350610e5c60208601610df4565b9250604085013567ffffffffffffffff811115610e7857600080fd5b610e8487828801610d09565b95989497509550505050565b6000815180845260005b81811015610eb657602081850181015186830182015201610e9a565b506000602082860101526020601f19601f83011685010191505092915050565b6000610140808352610eea8184018e610e90565b90508281036020840152610efe818d610e90565b905067ffffffffffffffff8b16604084015261ffff8a166060840152881515608084015260ff881660a084015282810360c0840152610f3d8188610e90565b60e0840196909652505061010081019290925261012090910152979650505050505050565b6020808252600990820152683737ba1037bbb732b960b91b604082015260600190565b602080825260069082015265189859081a5960d21b604082015260600190565b634e487b7160e01b600052601160045260246000fd5b80820180821115610fce57610fce610fa5565b92915050565b8082028115828204841417610fce57610fce610fa5565b60008261100857634e487b7160e01b600052601260045260246000fd5b500490565b81810381811115610fce57610fce610fa5565b60006001820161103257611032610fa5565b5060010190565b634e487b7160e01b600052604160045260246000fd5b600181811c9082168061106357607f821691505b60208210810361108357634e487b7160e01b600052602260045260246000fd5b50919050565b601f8211156102a157600081815260208120601f850160051c810160208610156110b05750805b601f850160051c820191505b818110156110cf578281556001016110bc565b505050505050565b67ffffffffffffffff8311156110ef576110ef611039565b611103836110fd835461104f565b83611089565b6000601f841160018114611137576000851561111f5750838201355b600019600387901b1c1916600186901b178355611191565b600083815260209020601f19861690835b828110156111685786850135825560209485019460019092019101611148565b50868210156111855760001960f88860031b161c19848701351681555b505060018560011b0183555b5050505050565b81835281816020850137506000828201602090810191909152601f909101601f19169091010190565b6080815260006111d560808301888a611198565b82810360208401526111e8818789611198565b91505067ffffffffffffffff8416604083015261ffff83166060830152979650505050505050565b60ff8416815260406020820152600061122d604083018486611198565b9594505050505056fea26469706673582212204911c6239305837f2ebcd2e914b20f786fd1ab594338649fe458937255c9a91f64736f6c63430008140033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "bet(uint256,uint8)": {
+        "params": {
+          "side": "1 = A, 2 = B, 3 = Draw"
+        }
+      }
+    },
+    "title": "Simple Football Prediction Market (A vs B vs Draw) — Monad Testnet",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "notice": "Pari-mutuel: all stakes go into three pools; winners claim pro-rata",
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 81,
+        "contract": "contracts/PredictionMarketSimple.sol:PredictionMarketSimple",
+        "label": "owner",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      },
+      {
+        "astId": 83,
+        "contract": "contracts/PredictionMarketSimple.sol:PredictionMarketSimple",
+        "label": "marketCount",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 88,
+        "contract": "contracts/PredictionMarketSimple.sol:PredictionMarketSimple",
+        "label": "markets",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_mapping(t_uint256,t_struct(Market)39_storage)"
+      },
+      {
+        "astId": 90,
+        "contract": "contracts/PredictionMarketSimple.sol:PredictionMarketSimple",
+        "label": "feesAccrued",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_uint256"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_mapping(t_address,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_mapping(t_uint256,t_struct(Market)39_storage)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => struct PredictionMarketSimple.Market)",
+        "numberOfBytes": "32",
+        "value": "t_struct(Market)39_storage"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_struct(Market)39_storage": {
+        "encoding": "inplace",
+        "label": "struct PredictionMarketSimple.Market",
+        "members": [
+          {
+            "astId": 4,
+            "contract": "contracts/PredictionMarketSimple.sol:PredictionMarketSimple",
+            "label": "teamA",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 6,
+            "contract": "contracts/PredictionMarketSimple.sol:PredictionMarketSimple",
+            "label": "teamB",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 8,
+            "contract": "contracts/PredictionMarketSimple.sol:PredictionMarketSimple",
+            "label": "cutoff",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint64"
+          },
+          {
+            "astId": 10,
+            "contract": "contracts/PredictionMarketSimple.sol:PredictionMarketSimple",
+            "label": "feeBps",
+            "offset": 8,
+            "slot": "2",
+            "type": "t_uint16"
+          },
+          {
+            "astId": 12,
+            "contract": "contracts/PredictionMarketSimple.sol:PredictionMarketSimple",
+            "label": "resolved",
+            "offset": 10,
+            "slot": "2",
+            "type": "t_bool"
+          },
+          {
+            "astId": 14,
+            "contract": "contracts/PredictionMarketSimple.sol:PredictionMarketSimple",
+            "label": "winner",
+            "offset": 11,
+            "slot": "2",
+            "type": "t_uint8"
+          },
+          {
+            "astId": 16,
+            "contract": "contracts/PredictionMarketSimple.sol:PredictionMarketSimple",
+            "label": "score",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 18,
+            "contract": "contracts/PredictionMarketSimple.sol:PredictionMarketSimple",
+            "label": "poolA",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 20,
+            "contract": "contracts/PredictionMarketSimple.sol:PredictionMarketSimple",
+            "label": "poolB",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 22,
+            "contract": "contracts/PredictionMarketSimple.sol:PredictionMarketSimple",
+            "label": "poolDraw",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 26,
+            "contract": "contracts/PredictionMarketSimple.sol:PredictionMarketSimple",
+            "label": "betA",
+            "offset": 0,
+            "slot": "7",
+            "type": "t_mapping(t_address,t_uint256)"
+          },
+          {
+            "astId": 30,
+            "contract": "contracts/PredictionMarketSimple.sol:PredictionMarketSimple",
+            "label": "betB",
+            "offset": 0,
+            "slot": "8",
+            "type": "t_mapping(t_address,t_uint256)"
+          },
+          {
+            "astId": 34,
+            "contract": "contracts/PredictionMarketSimple.sol:PredictionMarketSimple",
+            "label": "betD",
+            "offset": 0,
+            "slot": "9",
+            "type": "t_mapping(t_address,t_uint256)"
+          },
+          {
+            "astId": 38,
+            "contract": "contracts/PredictionMarketSimple.sol:PredictionMarketSimple",
+            "label": "claimed",
+            "offset": 0,
+            "slot": "10",
+            "type": "t_mapping(t_address,t_bool)"
+          }
+        ],
+        "numberOfBytes": "352"
+      },
+      "t_uint16": {
+        "encoding": "inplace",
+        "label": "uint16",
+        "numberOfBytes": "2"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint64": {
+        "encoding": "inplace",
+        "label": "uint64",
+        "numberOfBytes": "8"
+      },
+      "t_uint8": {
+        "encoding": "inplace",
+        "label": "uint8",
+        "numberOfBytes": "1"
+      }
+    }
+  }
+}
